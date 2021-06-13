@@ -7,9 +7,9 @@ interface Props {
 }
 
 const fillColourMap = {
-    'EMPTY': 'ffffff',
-    'PLAYER_1': 'ff8777',
-    'PLAYER_2': '77a0ff'
+    'EMPTY': '#ffffff',
+    'PLAYER_1': '#ff8777',
+    'PLAYER_2': '#77a0ff'
 }
 
 function useForceUpdate() {
@@ -32,6 +32,7 @@ export function GameComponent(props: Props) {
         .flatMap(row => Constants.ALL_COLUMNS_INDICES.map(column => [row, column]))
         .map(([row, column]) => {
             const fillColour = fillColourMap[game.board[row][column]];
+            console.log(fillColour);
             return <circle
                 key={column * Constants.COLUMNS + row}
                 cx={column * delta + padding + radius}
